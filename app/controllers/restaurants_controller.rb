@@ -3,10 +3,11 @@ class RestaurantsController < ApplicationController
   
   def index
     @restaurants = Restaurant.all
-    render
+    # render
   end
 
   def show
+    @review = Review.new
   end
 
   def new

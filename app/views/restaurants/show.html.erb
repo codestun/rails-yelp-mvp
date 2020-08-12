@@ -1,1 +1,23 @@
-<h1>Showpage</h1>
+<h1><%= @restaurant.name %></h1>
+<p>Address: <%= @restaurant.address %></p>
+<p>Phone: <%= @restaurant.phone_number %></p>
+<p>All Reviews</p>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> | <%= review.rating %> <%= link_to "Delete", restaurant_review_path(@restaurant, review), method: :delete, data: { confirm: "Are you sure?"} %></li>
+  <% end %>
+</ul>
+
+<p>Please add your review below:</p>
+<hr />
+<%= form_for [@restaurant, @review] do |f| %>
+  <div>
+    <%= f.label :content %><br />
+    <%= f.text_area :content, { rows: "5" } %></div>
+  <div>
+  <div>
+    <%= f.label :rating %><br />
+    <%= f.number_field :rating %>
+  </div>
+  <%= f.submit %>
+<% end %>

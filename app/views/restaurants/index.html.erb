@@ -1,3 +1,7 @@
-<h1>List all Restaurants</h1>
+<h1>My restaurants</h1>
 
-restaurants.each do |restaurant| 
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li><%= link_to restaurant.name, restaurant %></li>
+  <% end %>
+</ul>
