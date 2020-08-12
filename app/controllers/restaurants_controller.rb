@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, except: [:index, :new, :create]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   
   def index
     @restaurants = Restaurant.all
