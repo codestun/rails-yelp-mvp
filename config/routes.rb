@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'restaurantgit/status'
+  get 'restaurants/status'
   resources :restaurants
 end
